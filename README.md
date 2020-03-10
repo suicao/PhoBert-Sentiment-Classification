@@ -5,7 +5,7 @@ Sentiment classification for Vietnamese text using PhoBert
 
 This project shows how to finetune the recently released [PhoBERT](https://github.com/VinAIResearch/PhoBERT) for sentiment classification using AIViVN's [comments dataset](https://www.aivivn.com/contests/6).
 
-The model score 0.90849 on the public leaderboard, (winner's solution score 0.90087):
+The model scored 0.90849 on the public leaderboard, (winner's solution score is 0.90087):
 ![](https://i.imgur.com/o123cJd.png)
 
 ## Model architecture
@@ -27,7 +27,7 @@ This will create two files ```train.csv``` and ```test.csv``` in your ```./data`
 
 ### Installing VnCoreNLP
 
-Install the pythong bindings:
+Install the python bindings:
 
 ```$pip3 install  vncorenlp```
 
