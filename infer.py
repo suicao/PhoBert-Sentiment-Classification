@@ -35,7 +35,6 @@ parser.add_argument('--bpe-codes', default="./phobert/bpe.codes",type=str, help=
 
 args = parser.parse_args()
 bpe = fastBPE(args)
-# rdrsegmenter = VnCoreNLP("/media/khoi/data/Data/khoiai/vncorenlp/VnCoreNLP/VnCoreNLP-1.1.1.jar", annotators="wseg", max_heap_size='-Xmx500m') 
 rdrsegmenter = VnCoreNLP(args.rdrsegmenter_path, annotators="wseg", max_heap_size='-Xmx500m') 
 
 # Load model
