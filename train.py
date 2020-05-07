@@ -111,7 +111,7 @@ for fold, (train_idx, val_idx) in enumerate(splits):
             del scheduler0
             torch.cuda.empty_cache()
 
-        val_preds = []
+        val_preds = None
         train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batch_size, shuffle=True)
         valid_loader = torch.utils.data.DataLoader(valid_dataset, batch_size=args.batch_size, shuffle=False)
         avg_loss = 0.
@@ -141,7 +141,7 @@ for fold, (train_idx, val_idx) in enumerate(splits):
         for i,(x_batch, y_batch) in pbar:
             y_pred = model_bert(x_batch.cuda(), attention_mask=(x_batch>0).cuda())
             y_pred = y_pred.squeeze().detach().cpu().numpy()
-            val_preds = np.concatenate([val_preds, np.atleast_1d(y_pred)])
+            val_preds = np.atleast_1d(y_pred) if val_preds is None else np.concatenate([val_preds, np.atleast_1d(y_pred)])
         val_preds = sigmoid(val_preds)
 
         best_th = 0
